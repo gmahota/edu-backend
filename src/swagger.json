@@ -163,6 +163,77 @@
                     }
                 }
             }
+        },
+        "/schools":{
+            "get": {
+                "tags": [
+                    "School"
+                ],
+                "summary": "Get All School in System",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/School"
+                        }
+                    }
+                }
+            },
+            "post": {
+                "tags": [
+                    "School"
+                ],
+                "summary": "Create New Teacher On The System",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "User that we want to create",
+                        "schema": {
+                            "$ref": "#/definitions/School"
+                        }
+                    }
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/School"
+                        }
+                    },
+                    "400": {
+                        "description": "Failed. Bad post data."
+                    }
+                }
+            }
+        },
+        "/schools/{id}": {
+            "parameters": [
+                {
+                    "name": "id",
+                    "in": "path",
+                    "required": true,
+                    "description": "Id of the School that we want to",
+                    "type": "string"
+                }
+            ],
+            "get": {
+                "tags": [
+                    "School"
+                ],
+                "summary": "Get Teacher of the given ID",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "$ref": "#/definitions/School"
+                        }
+                    }
+                }
+            }
         }
     },
     "definitions": {
@@ -272,6 +343,72 @@
                 "id",
                 "name"
             ]
+        },
+        "School":{
+            "title": "School",
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "title": "id"
+                },
+                "name": {
+                    "type": "string",
+                    "title": "name"
+                },
+                "abbreviation": {
+                    "type": "string",
+                    "title": "abbreviation"
+                },
+                "address": {
+                    "type": "string",
+                    "title": "address"
+                },
+                "city": {
+                    "type": "string",
+                    "title": "city"
+                },
+                "cluster": {
+                    "type": "string",
+                    "title": "cluster"
+                },
+                "gradeSpan": {
+                    "type": "string",
+                    "title": "gradeSpan"
+                },
+                "highGrade": {
+                    "type": "string",
+                    "title": "highGrade"
+                },
+                "lowGrade": {
+                    "type": "string",
+                    "title": "lowGrade"
+                },
+                "phone": {
+                    "type": "string",
+                    "title": "phone"
+                },
+                "principal": {
+                    "type": "string",
+                    "title": "principal"
+                },
+                "region": {
+                    "type": "string",
+                    "title": "region"
+                },
+                "state": {
+                    "type": "string",
+                    "title": "state"
+                },
+                "ward": {
+                    "type": "string",
+                    "title": "ward"
+                },
+                "zip": {
+                    "type": "string",
+                    "title": "zip"
+                }
+            }
         }
     }
 }
